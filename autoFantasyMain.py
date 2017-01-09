@@ -95,9 +95,13 @@ def debug():
     cv2.waitKey(0)
 
 def main():
+    print("Hold LEFT SHIFT to quit")
     for day in range(100):
-        time.sleep(1)
-        print("!!!!!!!!!!!!!!! NEW DAY")
+        print("##############NEW DAY##############")
+        if (win32api.GetAsyncKeyState(win32con.VK_LSHIFT)!=0):
+            print("Quitting...")
+            break
+        time.sleep(1) #to wait for browser to load
         a = getVals()
         print(a)
         print("available", convert(a))
